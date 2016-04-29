@@ -9,4 +9,5 @@ EXPOSE 443
 WORKDIR /etc/nginx
 
 # Define default command.
-CMD ["nginx"]
+#CMD ["nginx"]
+CMD ["/bin/bash"]
