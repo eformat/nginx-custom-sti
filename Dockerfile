@@ -5,9 +5,11 @@ FROM registry.access.redhat.com/rhscl/nginx-16-rhel7
 EXPOSE 80
 EXPOSE 443
 
-# Define working directory.
-WORKDIR /etc/nginx
+#VOLUME ["/opt/rh/nginx16/root/usr/share/nginx/html"]
+#VOLUME ["/var/log/nginx16"]
 
-# Define default command.
-#CMD ["nginx"]
-CMD ["/bin/bash"]
+ADD content /opt/rh/nginx16/root/usr/share/nginx/html/
+
+# Run
+ENTRYPOINT ["/usr/local/bin/run-nginx16.sh"]
+CMD ["nginx", "-g", "daemon off;"]
