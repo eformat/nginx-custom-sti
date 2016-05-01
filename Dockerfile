@@ -8,8 +8,7 @@ EXPOSE 443
 #VOLUME ["/opt/rh/nginx16/root/usr/share/nginx/html"]
 #VOLUME ["/var/log/nginx16"]
 
-#ADD content /opt/rh/nginx16/root/usr/share/nginx/html/
-#COPY content/ /opt/rh/nginx16/root/usr/share/nginx/html/
+ADD content /opt/rh/nginx16/root/usr/share/nginx/html/
 
 # Run
 ENTRYPOINT ["/usr/local/bin/run-nginx16.sh"]
