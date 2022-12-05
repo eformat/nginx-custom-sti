@@ -2,7 +2,7 @@
 FROM registry.access.redhat.com/ubi8/nginx-120:latest
 
 # Expose ports.
-EXPOSE 80
+EXPOSE 8080
 EXPOSE 443
 
 #ADD nginx.conf "${NGINX_CONF_PATH}"
