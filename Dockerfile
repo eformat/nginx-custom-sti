@@ -1,15 +1,16 @@
 # nginx-custom-sti
-FROM registry.access.redhat.com/rhscl/nginx-16-rhel7
+FROM registry.access.redhat.com/ubi8/nginx-120:latest
 
 # Expose ports.
 EXPOSE 80
 EXPOSE 443
 
-#VOLUME ["/opt/rh/nginx16/root/usr/share/nginx/html"]
-#VOLUME ["/var/log/nginx16"]
+#ADD nginx.conf "${NGINX_CONF_PATH}"
+#ADD nginx-default-cfg/*.conf "${NGINX_DEFAULT_CONF_PATH}"
+#ADD nginx-cfg/*.conf "${NGINX_CONFIGURATION_PATH}"
 
-ADD content /opt/rh/nginx16/root/usr/share/nginx/html/
+# Add application sources
+ADD content/ .
 
 # Run
-ENTRYPOINT ["/usr/local/bin/run-nginx16.sh"]
 CMD ["nginx", "-g", "daemon off;"]

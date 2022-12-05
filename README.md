@@ -1,9 +1,9 @@
 # nginx-custom-sti
 
-Docker 
+Podman
 
-    docker build -t nginx .
-    docker run -d -p 8080:80 nginx
+    podman build -t nginx .
+    podman run -d -p 8080:80 nginx
 
 OpenShift
 
